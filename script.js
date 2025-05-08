@@ -236,14 +236,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let frenchAudioUrl, englishAudioUrl;
         try {
-            frenchAudioUrl = new URL(currentSentence.audioSrcFr, window.location.origin).href;
-            englishAudioUrl = new URL(currentSentence.audioSrcEn, window.location.origin).href;
+            frenchAudioUrl = `${currentSentence.audioSrcFr}`;
+            englishAudioUrl = `${currentSentence.audioSrcEn}`;
         } catch (error) {
-            console.error(`togglePlayPause: Invalid audio URLs - audioSrcFr: "${currentSentence.audioSrcFr}", audioSrcEn: "${currentSentence.audioSrcEn}"`, error);
-            if (continuousPlayStatusEl) continuousPlayStatusEl.textContent = `Error: Invalid audio URLs for sentence ${currentSentence.id}.`;
-            updatePlayPauseButton(false);
-            isAudioPlaying = false;
-            return;
+        console.error(`togglePlayPause: Invalid audio URLs - audioSrcFr: "<span class="math-inline">\{currentSentence\.audioSrcFr\}", audioSrcEn\: "</span>{currentSentence.audioSrcEn}"`, error);
+        if (continuousPlayStatusEl) continuousPlayStatusEl.textContent = `Error: Invalid audio URLs for sentence ${currentSentence.id}.`;
+        updatePlayPauseButton(false);
+        isAudioPlaying = false;
+        return;
         }
 
         isAudioPlaying = true;
