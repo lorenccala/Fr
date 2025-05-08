@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Comprehension Accelerator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>French Language Comprehension Accelerator</h1>
+        </header>
+
+        <main>
+            <section class="controls-main">
+                <h2>Controls</h2>
+                <div class="control-group">
+                    <label for="mode">Mode:</label>
+                    <select id="mode">
+                        <option value="readListen">Read While Listen</option>
+                        <option value="activeRecall">Active Recall</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="chunkSize">Sentences per chunk:</label>
+                    <input type="number" id="chunkSize" value="10" min="1">
+                </div>
+                <div class="control-group">
+                    <label for="currentChunk">Chunk:</label>
+                    <select id="currentChunk"></select>
+                </div>
+                <button id="applyChunkSettings" class="button">Load Chunk</button>
+            </section>
+
+            <section class="study-area">
+                <h2>Study Area</h2>
+                <div id="sentence-display">
+                    <p class="target-language-sentence" id="targetSentenceText">Loading sentence...</p>
+                    <p class="english-translation" id="englishSentenceText"></p>
+                    <p class="albanian-translation" id="albanianSentenceText"></p>
+                    <p class="verb-highlight" id="verbText"></p>
+                    <p class="verb-translation" id="verbEnglishText"></p>
+                    <p class="verb-translation" id="verbAlbanianText"></p>
+                </div>
+                <button id="revealAnswerBtn" class="button hidden">Reveal Answer</button>
+
+                <div class="audio-controls">
+                    <audio id="sentenceAudio"></audio>
+                    <button id="prevSentenceBtn" class="button">Previous</button>
+                    <button id="playPauseBtn" class="button">Play</button>
+                    <button id="nextSentenceBtn" class="button">Next</button>
+                    <button id="loopBtn" class="button">Loop: Off</button>
+                    <div class="control-group">
+                        <label for="playbackSpeed">Speed:</label>
+                        <select id="playbackSpeed">
+                            <option value="0.75">0.75x</option>
+                            <option value="1" selected>1x</option>
+                            <option value="1.25">1.25x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="1.75">1.75x</option>
+                            <option value="2">2x</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="sentence-counter">
+                    Sentence <span id="currentSentenceNum">0</span> of <span id="totalSentencesInChunk">0</span> (Total: <span id="totalSentences">0</span>)
+                </div>
+            </section>
+
+            <section class="listening-features">
+                <h2>Continuous Listening</h2>
+                <button id="playAllChunkAudioBtn" class="button">Play All in Current Chunk</button>
+                <button id="stopAllAudioBtn" class="button" disabled>Stop Continuous Play</button>
+                <p id="continuousPlayStatus"></p>
+            </section>
+
+            <section class="native-content-integration">
+                <h2>Native Content Switch</h2>
+                <p>Practice switching between this app and native material (podcasts, videos).</p>
+                <div class="timer-controls">
+                    <label for="easyPracticeTime">Practice Time (minutes):</label>
+                    <input type="number" id="easyPracticeTime" value="5" min="1">
+                    <button id="startEasyPracticeTimerBtn" class="button">Start Timer</button>
+                </div>
+                <p id="timerDisplay"></p>
+                <button id="switchToNativeBtn" class="button hidden alert-button">Time's up! Switch to Native Material!</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 Language Learning App</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
